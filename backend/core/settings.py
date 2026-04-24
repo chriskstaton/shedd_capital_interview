@@ -38,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -85,6 +93,7 @@ DATABASES = {
         'USER': 'devuser',
         'PASSWORD': 'devpassword',
         'HOST': 'db', # Matches the service name in docker-compose.yml
+        # 'HOST': 'localhost', # Matches the service name in docker-compose.yml
         'PORT': '5432',
     }
 }
