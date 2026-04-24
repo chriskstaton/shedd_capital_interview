@@ -23,7 +23,8 @@
       "extensions": [
         "ms-python.python",
         "Vue.volar",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "anthropic.claude-code"
       ]
     }
   },
