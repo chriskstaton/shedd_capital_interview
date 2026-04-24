@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    # Ensure the app container waits for the DB to be ready
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: interview_db
+    ports:
+      - "5432:5432"
