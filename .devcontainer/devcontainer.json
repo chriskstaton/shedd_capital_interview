@@ -28,5 +28,5 @@
       ]
     }
   },
-  "postCreateCommand": "pip install -r backend/requirements.txt && cd frontend && npm install && cd ../backend && python manage.py migrate"
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && pip install -r backend/requirements.txt && cd frontend && npm install && cd ../backend && python manage.py migrate"
 }
