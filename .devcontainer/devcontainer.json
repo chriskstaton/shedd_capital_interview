@@ -12,7 +12,8 @@
   "portsAttributes": {
     "5173": {
       "label": "Vue Frontend",
-      "onAutoForward": "openPreview"
+      "onAutoForward": "openPreview",
+      "visibility": "public"
     },
     "8000": {
       "label": "Django API"
