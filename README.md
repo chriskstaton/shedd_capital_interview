@@ -45,6 +45,17 @@ npm run dev
 
 ---
 
+## Suggested Approach
+
+This is intentionally open-ended. A reasonable path through the problem:
+
+1. **Clarify requirements** — Ask clarifying questions that should inform your model and UI design.
+2. **Model** — Define a Django model that represents a single customer observation, based on the requirements you've gathered.
+3. **API** — Create DRF serializers and views for creating and listing observations.
+4. **Frontend** — Build a Vue interface optimized for fast, accurate data entry in a high-pressure environment.
+
+---
+
 ## Architecture Notes
 
 - Vite proxies `/api/*` → `http://127.0.0.1:8000`, so all frontend API calls should use `/api/` paths. Register Django URLs under `api/` in `backend/core/urls.py`.
@@ -79,21 +90,3 @@ The Django admin is available at http://localhost:8000/admin — useful for quic
 
 ---
 
-## Suggested Approach
-
-This is intentionally open-ended. A reasonable path through the problem:
-
-1. **Clarify requirements** — Ask clarifying questions that should inform your model and UI design.
-2. **Model** — Define a Django model that represents a single customer observation, based on the requirements you've gathered.
-3. **API** — Create DRF serializers and views for creating and listing observations.
-4. **Frontend** — Build a Vue interface optimized for fast, accurate data entry in a high-pressure environment.
-
----
-
-## Evaluation Criteria
-
-- Does the core workflow function end-to-end?
-- Is the data model reasonable and the API well-structured?
-- Is the UI genuinely optimized for speed and accuracy in a real-world context?
-- Is the code organized and readable?
-- Did the candidate ask good clarifying questions before and during the build?
