@@ -1,5 +1,9 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center">
-    <h1 class="text-2xl font-semibold text-gray-800">Hello World</h1>
+  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
+    <CafeOrderForm />
   </div>
 </template>
+
+<script setup>
+import CafeOrderForm from '@/components/CafeOrderForm.vue'
+</script>

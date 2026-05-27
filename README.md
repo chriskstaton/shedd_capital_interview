@@ -1,3 +1,22 @@
+## notes
+ 
+Build a frontend component of a custom form that includes the following subcomponents, builds a JSON object with the following fields 
+
+ Customer Name (string): [text input field]
+
+ occupation (string): professional/student/unemployed  [use menu dropdown with options]
+
+ ordered item (string): coffee, tea, or juice [use menu dropdown with options]
+
+ time of the order placed (24hr HHMMSS number):
+
+ time order received (24hr HHMMSS number):
+
+ Customer's rating of the service on scale of 1-10 (number): [text input field]
+
+print json object to console
+
+
 # Engineering Interview — Cafe Study Data Collection Tool
 
 Welcome. You have **60 minutes** to build a data collection tool on top of this full-stack sandbox. You are free to use any external resources, documentation, or AI tools throughout the exercise.
@@ -51,7 +70,7 @@ This is intentionally open-ended. A reasonable path through the problem:
 
 1. **Clarify requirements** — Ask clarifying questions that should inform your model and UI design.
 2. **Model** — Define a Django model that represents a single customer observation, based on the requirements you've gathered.
-3. **API** — Create DRF serializers and views for creating and listing observations.
+3. **API** — Create Django RestFramework serializers and views for creating and listing observations.
 4. **Frontend** — Build a Vue interface optimized for fast, accurate data entry in a high-pressure environment.
 
 ---
