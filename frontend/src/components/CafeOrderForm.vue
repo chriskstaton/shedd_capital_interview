@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-md overflow-hidden">
+  <div>
     <div class="p-8">
     <h2 class="text-2xl font-bold text-gray-800 mb-6">Cafe Order Entry</h2>
 
@@ -48,14 +48,7 @@
         <label class="block text-sm font-medium text-gray-700 mb-1">
           Time Order Placed <span class="text-gray-400 font-normal">(HHMMSS)</span>
         </label>
-        <input
-          v-model="form.timePlaced"
-          type="text"
-          placeholder="e.g. 143022"
-          maxlength="6"
-          pattern="\d{6}"
-          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <TimeInputPicker v-model="form.timePlaced" placeholder="e.g. 143022" />
       </div>
 
       <!-- Time Order Received -->
@@ -63,14 +56,7 @@
         <label class="block text-sm font-medium text-gray-700 mb-1">
           Time Order Received <span class="text-gray-400 font-normal">(HHMMSS)</span>
         </label>
-        <input
-          v-model="form.timeReceived"
-          type="text"
-          placeholder="e.g. 143512"
-          maxlength="6"
-          pattern="\d{6}"
-          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <TimeInputPicker v-model="form.timeReceived" placeholder="e.g. 143512" />
       </div>
 
       <!-- Rating -->
@@ -109,6 +95,9 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import axios from 'axios'
+import TimeInputPicker from '@/components/TimeInputPicker.vue'
+
+const emit = defineEmits(['submitted'])
 
 const form = reactive({
   customerName: '',
@@ -143,6 +132,7 @@ async function handleSubmit() {
     await axios.post('/api/observations/create/', payload)
     submitStatus.value = 'success'
     Object.assign(form, { customerName: '', occupation: '', orderedItem: '', timePlaced: '', timeReceived: '', rating: null })
+    emit('submitted')
   } catch (err) {
     submitStatus.value = 'error'
     statusMessage.value = err.response?.data
